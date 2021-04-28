@@ -13,8 +13,11 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float chasingRange;
     [SerializeField] private float shootingRange;
 
+
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Cover[] availableCovers;
+
+
 
     private Material material;
     private Transform bestCoverSpot;
@@ -32,16 +35,16 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        material = GetComponent<MeshRenderer>().material;
+        material = GetComponentInChildren<MeshRenderer>().material;
     }
 
     private void Start()
     {
         _currentHealth = startingHealth;
-        ConstructDecisionTree();
+        ConstructBehahaviourTree();
     }
 
-    private void ConstructDecisionTree()
+    private void ConstructBehahaviourTree()
     {
         IsCoveredAvailableNode coverAvailableNode = new IsCoveredAvailableNode(availableCovers, playerTransform, this);
         GoToCoverNode goToCoverNode = new GoToCoverNode(agent, this);
@@ -61,9 +64,11 @@ public class EnemyAI : MonoBehaviour
         Sequence mainCoverSequence = new Sequence(new List<Node> { healthNode, tryToTakeCoverSelector });
 
         topNode = new Selector(new List<Node> { mainCoverSequence, shootSequence, chaseSequence });
+
+
     }
 
-    void Update()
+    private void Update()
     {
         topNode.Evaluate();
         if (topNode.nodeState == NodeState.FAILURE)
@@ -71,15 +76,14 @@ public class EnemyAI : MonoBehaviour
             SetColor(Color.white);
             agent.isStopped = true;
         }
-
-        currentHealth += healthRestoreRate * Time.deltaTime;
-
+        currentHealth += Time.deltaTime * healthRestoreRate;
         //Debug.Log(currentHealth);
     }
 
-    public void OnMouseDown()
+
+    public void TakeDamage(float damage)
     {
-        currentHealth -= 10f;
+        currentHealth -= damage;
     }
 
     public void SetColor(Color color)
@@ -96,4 +100,6 @@ public class EnemyAI : MonoBehaviour
     {
         return bestCoverSpot;
     }
+
+
 }

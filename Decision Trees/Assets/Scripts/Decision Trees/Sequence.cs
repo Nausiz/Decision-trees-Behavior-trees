@@ -10,7 +10,6 @@ public class Sequence : Node
     {
         this.nodes = nodes;
     }
-
     public override NodeState Evaluate()
     {
         bool isAnyNodeRunning = false;
@@ -24,12 +23,12 @@ public class Sequence : Node
                 case NodeState.SUCCESS:
                     break;
                 case NodeState.FAILURE:
+                    _nodeState = NodeState.FAILURE;
                     return _nodeState;
                 default:
                     break;
             }
         }
-
         _nodeState = isAnyNodeRunning ? NodeState.RUNNING : NodeState.SUCCESS;
         return _nodeState;
     }

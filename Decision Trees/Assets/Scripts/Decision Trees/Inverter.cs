@@ -10,14 +10,13 @@ public class Inverter : Node
     {
         this.node = node;
     }
-
     public override NodeState Evaluate()
     {
-        
         switch (node.Evaluate())
         {
             case NodeState.RUNNING:
                 _nodeState = NodeState.RUNNING;
+
                 break;
             case NodeState.SUCCESS:
                 _nodeState = NodeState.FAILURE;
@@ -28,7 +27,6 @@ public class Inverter : Node
             default:
                 break;
         }
-            
         return _nodeState;
     }
 }

@@ -10,7 +10,6 @@ public class Selector : Node
     {
         this.nodes = nodes;
     }
-
     public override NodeState Evaluate()
     {
         foreach (var node in nodes)
@@ -29,7 +28,6 @@ public class Selector : Node
                     break;
             }
         }
-
         _nodeState = NodeState.FAILURE;
         return _nodeState;
     }
