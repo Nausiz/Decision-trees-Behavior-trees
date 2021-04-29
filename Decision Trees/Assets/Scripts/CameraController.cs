@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
@@ -13,6 +15,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
 
+    [SerializeField] private Text pause;
+    [SerializeField] private Image crosshair;
+
     private float horizontalInput;
     private float verticalInput;
     private float mouseInputX;
@@ -20,19 +25,48 @@ public class CameraController : MonoBehaviour
     private float currentRotationY;
     private float currentRotationX;
 
+    public static bool blocked;
+
     private void Start()
     {
         currentRotationY = transform.eulerAngles.y;
         currentRotationX = transform.eulerAngles.x;
         Cursor.lockState = CursorLockMode.Locked;
+        blocked = false;
+        pause.enabled = false;
+        crosshair.enabled = true;
+        Time.timeScale = 1;
     }
 
 
     private void Update()
     {
-        GetInput();
-        HandleTranslation();
-        HandleRotation();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Cursor.lockState == CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Time.timeScale = 0;
+                pause.enabled = true;
+                crosshair.enabled = false;
+                blocked = true;
+            }
+            else if (Cursor.lockState == CursorLockMode.None)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Time.timeScale = 1;
+                pause.enabled = false;
+                crosshair.enabled = true;
+                blocked = false;
+            }
+        }
+
+        if (!blocked)
+        {
+            GetInput();
+            HandleTranslation();
+            HandleRotation();
+        }
     }
 
     private void GetInput()

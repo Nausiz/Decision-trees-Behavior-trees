@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void LoadScene1()
     {
         SceneManager.LoadScene(1);
@@ -28,6 +33,11 @@ public class MainMenu : MonoBehaviour
     public void LoadScene5()
     {
         SceneManager.LoadScene(5);
+    }
+
+    public void ResetLvl()
+    {
+        Application.LoadLevel(Application.loadedLevel);
     }
 
     public void Quit()

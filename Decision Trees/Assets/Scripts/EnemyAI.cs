@@ -3,19 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] private float startingHealth;
-    [SerializeField] private float lowHealthThreshold;
-    [SerializeField] private float healthRestoreRate;
+    [SerializeField] private float startingHealth=100;
+    [SerializeField] private float lowHealthThreshold=50;
+    [SerializeField] private float healthRestoreRate=1;
 
-    [SerializeField] private float chasingRange;
-    [SerializeField] private float shootingRange;
+    [SerializeField] private float chasingRange=15;
+    [SerializeField] private float shootingRange=5;
 
 
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Cover[] availableCovers;
+
+    [SerializeField] private Slider HPThresholdSlider;
+    [SerializeField] private Slider HPRegenSlider;
+    [SerializeField] private Slider ChaseRangeSlider;
+    [SerializeField] private Slider AtackRangeSlider;
 
 
 
@@ -41,6 +47,14 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
         _currentHealth = startingHealth;
+
+        if (HPThresholdSlider != null && HPRegenSlider != null && ChaseRangeSlider !=null && AtackRangeSlider != null)
+        {
+            HPThresholdSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+            HPRegenSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); }); 
+            ChaseRangeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+            AtackRangeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+        }
         ConstructBehahaviourTree();
     }
 
@@ -64,8 +78,6 @@ public class EnemyAI : MonoBehaviour
         Sequence mainCoverSequence = new Sequence(new List<Node> { healthNode, tryToTakeCoverSelector });
 
         topNode = new Selector(new List<Node> { mainCoverSequence, shootSequence, chaseSequence });
-
-
     }
 
     private void Update()
@@ -77,7 +89,16 @@ public class EnemyAI : MonoBehaviour
             agent.isStopped = true;
         }
         currentHealth += Time.deltaTime * healthRestoreRate;
-        //Debug.Log(currentHealth);
+    }
+
+    public void ValueChangeCheck()
+    {
+        lowHealthThreshold = HPThresholdSlider.value;
+        healthRestoreRate = HPRegenSlider.value;
+        chasingRange = ChaseRangeSlider.value;
+        shootingRange = AtackRangeSlider.value;
+
+        ConstructBehahaviourTree();
     }
 
 
