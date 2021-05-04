@@ -66,11 +66,12 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
-    <Compile Include="Assets\Scripts\Nodes\IsCoveredAvailableNode.cs" />
+    <Compile Include="Assets\Scripts\Nodes\EnemyNodes\IsCoveredAvailableNode.cs" />
     <Compile Include="Assets\Scripts\Decision Trees\Selector.cs" />
+    <Compile Include="Assets\Scripts\AllyAI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
-    <Compile Include="Assets\Scripts\Nodes\ChaseNode.cs" />
+    <Compile Include="Assets\Scripts\Nodes\EnemyNodes\ChaseNode.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Scripts\Nodes\IsCoveredNode.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
@@ -80,7 +81,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\Cover.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
-    <Compile Include="Assets\Scripts\Nodes\GoToCoverNode.cs" />
+    <Compile Include="Assets\Scripts\Nodes\EnemyNodes\GoToCoverNode.cs" />
     <Compile Include="Assets\Scripts\Decision Trees\Inverter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
@@ -90,7 +91,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
-    <Compile Include="Assets\Scripts\Nodes\HealthNode.cs" />
+    <Compile Include="Assets\Scripts\Nodes\EnemyNodes\HealthNode.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
@@ -101,13 +102,17 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
-    <Compile Include="Assets\Scripts\Nodes\ShootNode.cs" />
+    <Compile Include="Assets\Scripts\Nodes\EnemyNodes\ShootNode.cs" />
     <Compile Include="Assets\Scripts\EnemyUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Decision Trees\Sequence.cs" />
-    <Compile Include="Assets\Scripts\AllyAI.cs" />
+    <Compile Include="Assets\Scripts\Nodes\AllyNodes\IsCoveredAvailableAllyNode.cs" />
+    <Compile Include="Assets\Scripts\Nodes\AllyNodes\GoToCoverAllyNode.cs" />
+    <Compile Include="Assets\Scripts\Nodes\AllyNodes\ChaseAllyNode.cs" />
+    <Compile Include="Assets\Scripts\Nodes\AllyNodes\ModeAllyNode.cs" />
+    <Compile Include="Assets\Scripts\Nodes\AllyNodes\ShootAllyNode.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
