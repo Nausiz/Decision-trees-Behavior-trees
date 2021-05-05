@@ -55,10 +55,10 @@ public class EnemyAI : MonoBehaviour
             ChaseRangeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
             AtackRangeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
         }
-        ConstructBehahaviourTree();
+        ConstructBehaviourTree();
     }
 
-    private void ConstructBehahaviourTree()
+    private void ConstructBehaviourTree()
     {
         IsCoveredAvailableNode coverAvailableNode = new IsCoveredAvailableNode(availableCovers, playerTransform, this);
         GoToCoverNode goToCoverNode = new GoToCoverNode(agent, this);
@@ -70,11 +70,15 @@ public class EnemyAI : MonoBehaviour
         ShootNode shootNode = new ShootNode(agent, this, playerTransform);
 
         Sequence chaseSequence = new Sequence(new List<Node> { chasingRangeNode, chaseNode });
+
         Sequence shootSequence = new Sequence(new List<Node> { shootingRangeNode, shootNode });
 
         Sequence goToCoverSequence = new Sequence(new List<Node> { coverAvailableNode, goToCoverNode });
+
         Selector findCoverSelector = new Selector(new List<Node> { goToCoverSequence, chaseSequence });
+
         Selector tryToTakeCoverSelector = new Selector(new List<Node> { isCoveredNode, findCoverSelector });
+
         Sequence mainCoverSequence = new Sequence(new List<Node> { healthNode, tryToTakeCoverSelector });
 
         topNode = new Selector(new List<Node> { mainCoverSequence, shootSequence, chaseSequence });
@@ -98,7 +102,7 @@ public class EnemyAI : MonoBehaviour
         chasingRange = ChaseRangeSlider.value;
         shootingRange = AtackRangeSlider.value;
 
-        ConstructBehahaviourTree();
+        ConstructBehaviourTree();
     }
 
 

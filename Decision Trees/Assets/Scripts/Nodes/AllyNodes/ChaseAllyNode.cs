@@ -34,6 +34,4 @@ public class ChaseAllyNode : Node
             return NodeState.SUCCESS;
         }
     }
-
-
 }
