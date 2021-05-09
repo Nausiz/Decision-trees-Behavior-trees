@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class AllyAI : MonoBehaviour
 {
-    [SerializeField] private float chasingRange = 15;
+    [SerializeField] private float chasingRange = 20;
     [SerializeField] private float shootingRange = 5;
     [SerializeField] private bool attackMode = true;
 

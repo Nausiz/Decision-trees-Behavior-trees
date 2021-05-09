@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float lowHealthThreshold=50;
     [SerializeField] private float healthRestoreRate=1;
 
-    [SerializeField] private float chasingRange=15;
+    [SerializeField] private float chasingRange=20;
     [SerializeField] private float shootingRange=5;
 
 

@@ -113,7 +113,14 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Decision Trees\Sequence.cs" />
-    <Compile Include="Assets\Scripts\RotationNPC.cs" />
+    <Compile Include="Assets\Scripts\NpcAI.cs" />
+    <Compile Include="Assets\Scripts\Nodes\NPCNodes\ChaseNPCNode.cs" />
+    <Compile Include="Assets\Scripts\Nodes\NPCNodes\StopMoveNPCNode.cs" />
+    <Compile Include="Assets\Scripts\Nodes\NPCNodes\ShootNPCNode.cs" />
+    <Compile Include="Assets\Scripts\Nodes\NPCNodes\WaitToEndNode.cs" />
+    <Compile Include="Assets\Scripts\DialogSystemNPC.cs" />
+    <Compile Include="Assets\Scripts\NPCDialogue.cs" />
+    <Compile Include="Assets\Scripts\DialogueSystemBox.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
