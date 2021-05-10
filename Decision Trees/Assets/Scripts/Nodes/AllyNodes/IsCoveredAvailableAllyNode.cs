@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class IsCoveredAvailableAllyNode : Node
@@ -32,8 +29,10 @@ public class IsCoveredAvailableAllyNode : Node
                 return ai.GetBestCoverSpot();
             }
         }
+
         float minAngle = 90;
         Transform bestSpot = null;
+
         for (int i = 0; i < availableCovers.Length; i++)
         {
             Transform bestSpotInCover = FindBestSpotInCover(availableCovers[i], ref minAngle);

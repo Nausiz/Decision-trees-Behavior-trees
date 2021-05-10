@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -34,14 +33,14 @@ public class AllyAI : MonoBehaviour
     private void Start()
     {
         modeToggle.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
-        ConstructBehaviourTree();
+        CreateDecisionTree();
     }
 
-    private void ConstructBehaviourTree()
+    private void CreateDecisionTree()
     {
         IsCoveredAvailableAllyNode coverAvailableNode = new IsCoveredAvailableAllyNode(availableCovers, enemyTransform, this);
         GoToCoverAllyNode goToCoverNode = new GoToCoverAllyNode(agent, this, escapeAllyMaterial);
-        ModeAllyNode modeAllyNode = new ModeAllyNode(modeToggle.isOn);
+        ModeAllyNode modeAllyNode = new ModeAllyNode(attackMode);
         IsCoveredNode isCoveredNode = new IsCoveredNode(enemyTransform, transform);
         ChaseAllyNode chaseNode = new ChaseAllyNode(enemyTransform, agent, this, chaseAllyMaterial);
         RangeNode chasingRangeNode = new RangeNode(chasingRange, enemyTransform, transform);
@@ -76,7 +75,7 @@ public class AllyAI : MonoBehaviour
     public void ValueChangeCheck()
     {
         attackMode = modeToggle.isOn;
-        ConstructBehaviourTree();
+        CreateDecisionTree();
     }
 
     public void SetColor(Color color)

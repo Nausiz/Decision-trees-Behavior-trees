@@ -63,9 +63,11 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+    <Compile Include="Assets\Scripts\NpcAI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
+    <Compile Include="Assets\Scripts\Nodes\NPCNodes\ChaseNPCNode.cs" />
     <Compile Include="Assets\Scripts\Nodes\EnemyNodes\IsCoveredAvailableNode.cs" />
     <Compile Include="Assets\Scripts\Decision Trees\Selector.cs" />
     <Compile Include="Assets\Scripts\AllyAI.cs" />
@@ -73,14 +75,17 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\Scripts\Nodes\EnemyNodes\ChaseNode.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
+    <Compile Include="Assets\Scripts\Nodes\NPCNodes\ShootNPCNode.cs" />
     <Compile Include="Assets\Scripts\Nodes\IsCoveredNode.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Nodes\AllyNodes\ShootAllyNode.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\Scripts\Nodes\NPCNodes\StopMoveNPCNode.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\Cover.cs" />
+    <Compile Include="Assets\Scripts\NPCDialogue.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Scripts\Nodes\EnemyNodes\GoToCoverNode.cs" />
     <Compile Include="Assets\Scripts\Decision Trees\Inverter.cs" />
@@ -103,6 +108,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
+    <Compile Include="Assets\Scripts\DialogueSystemNPC.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\Scripts\Nodes\EnemyNodes\ShootNode.cs" />
@@ -110,16 +116,10 @@
     <Compile Include="Assets\Scripts\EnemyUI.cs" />
     <Compile Include="Assets\Scripts\Nodes\AllyNodes\ChaseAllyNode.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
+    <Compile Include="Assets\Scripts\Nodes\NPCNodes\WaitToEndNode.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Decision Trees\Sequence.cs" />
-    <Compile Include="Assets\Scripts\NpcAI.cs" />
-    <Compile Include="Assets\Scripts\Nodes\NPCNodes\ChaseNPCNode.cs" />
-    <Compile Include="Assets\Scripts\Nodes\NPCNodes\StopMoveNPCNode.cs" />
-    <Compile Include="Assets\Scripts\Nodes\NPCNodes\ShootNPCNode.cs" />
-    <Compile Include="Assets\Scripts\Nodes\NPCNodes\WaitToEndNode.cs" />
-    <Compile Include="Assets\Scripts\DialogSystemNPC.cs" />
-    <Compile Include="Assets\Scripts\NPCDialogue.cs" />
     <Compile Include="Assets\Scripts\DialogueSystemBox.cs" />
   </ItemGroup>
   <ItemGroup>

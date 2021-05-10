@@ -331,8 +331,8 @@ GameObject:
   - component: {fileID: 143331801}
   - component: {fileID: 143331800}
   - component: {fileID: 143331802}
-  - component: {fileID: 143331803}
   - component: {fileID: 143331804}
+  - component: {fileID: 143331803}
   m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged

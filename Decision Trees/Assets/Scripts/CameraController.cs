@@ -1,22 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
-    private const string HORIZONTAL = "Horizontal";
-    private const string VERTICAL = "Vertical";
-    private const string MOUSE_X = "Mouse X";
-    private const string MOUSE_Y = "Mouse Y";
-
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
 
     [SerializeField] private Text pause;
     [SerializeField] private Image crosshair;
+
+    private const string HORIZONTAL = "Horizontal";
+    private const string VERTICAL = "Vertical";
+    private const string MOUSE_X = "Mouse X";
+    private const string MOUSE_Y = "Mouse Y";
 
     private float horizontalInput;
     private float verticalInput;
@@ -37,7 +33,6 @@ public class CameraController : MonoBehaviour
         crosshair.enabled = true;
         Time.timeScale = 1;
     }
-
 
     private void Update()
     {
@@ -85,11 +80,11 @@ public class CameraController : MonoBehaviour
     }
     private void HandleRotation()
     {
-        float yaw = mouseInputX * Time.deltaTime * rotationSpeed;
-        currentRotationY += yaw;
+        float mouseX = mouseInputX * Time.deltaTime * rotationSpeed;
+        currentRotationY += mouseX;
 
-        float pitch = mouseInputY * Time.deltaTime * rotationSpeed;
-        currentRotationX -= pitch;
+        float mouseY = mouseInputY * Time.deltaTime * rotationSpeed;
+        currentRotationX -= mouseY;
         currentRotationX = Mathf.Clamp(currentRotationX, -90, 90);
         transform.localRotation = Quaternion.Euler(currentRotationX, currentRotationY, 0);
     }

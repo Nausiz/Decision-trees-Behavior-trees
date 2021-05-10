@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -33,5 +31,4 @@ public class StopMoveNPCNode : Node
         ai.transform.rotation = rotation;
         return NodeState.RUNNING;
     }
-
 }

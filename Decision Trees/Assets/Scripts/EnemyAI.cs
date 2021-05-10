@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,7 +12,6 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float chasingRange=20;
     [SerializeField] private float shootingRange=5;
 
-
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Cover[] availableCovers;
 
@@ -22,8 +19,6 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Slider HPRegenSlider;
     [SerializeField] private Slider ChaseRangeSlider;
     [SerializeField] private Slider AtackRangeSlider;
-
-
 
     private Material material;
     private Transform bestCoverSpot;
@@ -55,10 +50,10 @@ public class EnemyAI : MonoBehaviour
             ChaseRangeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
             AtackRangeSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
         }
-        ConstructBehaviourTree();
+        CreateDecisionTree();
     }
 
-    private void ConstructBehaviourTree()
+    private void CreateDecisionTree()
     {
         IsCoveredAvailableNode coverAvailableNode = new IsCoveredAvailableNode(availableCovers, playerTransform, this);
         GoToCoverNode goToCoverNode = new GoToCoverNode(agent, this);
@@ -102,9 +97,8 @@ public class EnemyAI : MonoBehaviour
         chasingRange = ChaseRangeSlider.value;
         shootingRange = AtackRangeSlider.value;
 
-        ConstructBehaviourTree();
+        CreateDecisionTree();
     }
-
 
     public void TakeDamage(float damage)
     {
@@ -125,6 +119,4 @@ public class EnemyAI : MonoBehaviour
     {
         return bestCoverSpot;
     }
-
-
 }

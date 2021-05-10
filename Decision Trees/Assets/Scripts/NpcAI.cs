@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
 
 public class NpcAI : MonoBehaviour
 {
@@ -25,10 +23,10 @@ public class NpcAI : MonoBehaviour
 
     private void Start()
     {
-        ConstructBehaviourTree();
+        CreateDecisionTree();
     }
 
-    private void ConstructBehaviourTree()
+    private void CreateDecisionTree()
     {
         ChaseNPCNode chaseNode = new ChaseNPCNode(playerTransform, agent, this);
         RangeNode chasingRangeNode = new RangeNode(chasingRange, playerTransform, transform);
@@ -59,7 +57,7 @@ public class NpcAI : MonoBehaviour
 
         if (missionEnd)
         {
-            ConstructBehaviourTree();
+            CreateDecisionTree();
         }
     }
 

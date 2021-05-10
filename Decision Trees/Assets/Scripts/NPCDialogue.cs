@@ -19,15 +19,15 @@ public class NPCDialogue : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.T))
             {
-                DialogSystemNPC.answeredFirst = true;
-                DialogSystemNPC.answeredFirstYes = true;
+                DialogueSystemNPC.answeredFirst = true;
+                DialogueSystemNPC.answeredFirstYes = true;
                 FirstPanel.SetActive(false);
             }
 
             if (Input.GetKeyDown(KeyCode.N))
             {
-                DialogSystemNPC.answeredFirst = true;
-                DialogSystemNPC.answeredFirstYes = false;
+                DialogueSystemNPC.answeredFirst = true;
+                DialogueSystemNPC.answeredFirstYes = false;
                 FirstPanel.SetActive(false);
             }
         }

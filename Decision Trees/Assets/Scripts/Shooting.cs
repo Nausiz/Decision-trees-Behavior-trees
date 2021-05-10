@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
@@ -10,7 +7,6 @@ public class Shooting : MonoBehaviour
 
     [SerializeField]
     private float damage;
-
 
     private void Update()
     {

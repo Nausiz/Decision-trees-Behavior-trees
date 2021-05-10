@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueSystemBox : MonoBehaviour
@@ -11,7 +9,7 @@ public class DialogueSystemBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "Player" && !answeredSecond && DialogSystemNPC.answeredFirstYes)
+        if (collider.tag == "Player" && !answeredSecond && DialogueSystemNPC.answeredFirstYes)
             SecondPanel.SetActive(true);
     }
 

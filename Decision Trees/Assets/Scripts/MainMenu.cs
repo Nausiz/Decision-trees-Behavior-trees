@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -37,6 +35,13 @@ public class MainMenu : MonoBehaviour
 
     public void ResetLvl()
     {
+        DialogueSystemNPC.answeredFirst = false;
+        DialogueSystemNPC.answeredFirstYes = false;
+        DialogueSystemBox.answeredSecond = false;
+        DialogueSystemBox.answeredSecondDestroy = false;
+        DialogueSystemBox.answeredSecondTake = false;
+        NpcAI.missionEnd = false;
+        NpcAI.attackMode = false;
         Application.LoadLevel(Application.loadedLevel);
     }
 
