@@ -35,6 +35,7 @@ public class MainMenu : MonoBehaviour
 
     public void ResetLvl()
     {
+        Application.LoadLevel(Application.loadedLevel);
         DialogueSystemNPC.answeredFirst = false;
         DialogueSystemNPC.answeredFirstYes = false;
         DialogueSystemBox.answeredSecond = false;
@@ -42,7 +43,6 @@ public class MainMenu : MonoBehaviour
         DialogueSystemBox.answeredSecondTake = false;
         NpcAI.missionEnd = false;
         NpcAI.attackMode = false;
-        Application.LoadLevel(Application.loadedLevel);
     }
 
     public void Quit()
