@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class AllyAI : MonoBehaviour
 {
     [SerializeField] private float chasingRange = 20;
-    [SerializeField] private float shootingRange = 5;
+    [SerializeField] private float attackRange = 5;
     [SerializeField] private bool attackMode = true;
 
     [SerializeField] private Transform enemyTransform;
@@ -35,21 +35,21 @@ public class AllyAI : MonoBehaviour
         modeToggle.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
         CreateDecisionTree();
     }
-
+    
     private void CreateDecisionTree()
     {
         IsCoveredAvailableAllyNode coverAvailableNode = new IsCoveredAvailableAllyNode(availableCovers, enemyTransform, this);
         GoToCoverAllyNode goToCoverNode = new GoToCoverAllyNode(agent, this, escapeAllyMaterial);
         ModeAllyNode modeAllyNode = new ModeAllyNode(attackMode);
-        IsCoveredNode isCoveredNode = new IsCoveredNode(enemyTransform, transform);
+        IsCoveredAllyNode isCoveredNode = new IsCoveredAllyNode(enemyTransform, transform);
         ChaseAllyNode chaseNode = new ChaseAllyNode(enemyTransform, agent, this, chaseAllyMaterial);
         RangeNode chasingRangeNode = new RangeNode(chasingRange, enemyTransform, transform);
-        RangeNode shootingRangeNode = new RangeNode(shootingRange, enemyTransform, transform);
-        ShootAllyNode shootNode = new ShootAllyNode(agent, this, enemyTransform, attackAllyMaterial);
-
+        RangeNode shootingRangeNode = new RangeNode(attackRange, enemyTransform, transform);
+        AttackAllyNode attackNode = new AttackAllyNode(agent, this, enemyTransform, attackAllyMaterial);
+        
         Sequence chaseSequence = new Sequence(new List<Node> { chasingRangeNode, chaseNode });
 
-        Sequence shootSequence = new Sequence(new List<Node> { shootingRangeNode, shootNode });
+        Sequence attackSequence = new Sequence(new List<Node> { shootingRangeNode, attackNode });
 
         Sequence goToCoverSequence = new Sequence(new List<Node> { coverAvailableNode, goToCoverNode });
 
@@ -59,7 +59,7 @@ public class AllyAI : MonoBehaviour
 
         Sequence mainCoverSequence = new Sequence(new List<Node> { modeAllyNode, tryToTakeCoverSelector });
 
-        topNode = new Selector(new List<Node> { mainCoverSequence, shootSequence, chaseSequence });
+        topNode = new Selector(new List<Node> { mainCoverSequence, attackSequence, chaseSequence });
     }
 
     private void Update()

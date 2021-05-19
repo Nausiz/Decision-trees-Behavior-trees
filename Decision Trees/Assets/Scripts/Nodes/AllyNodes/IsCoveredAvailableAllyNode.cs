@@ -68,7 +68,7 @@ public class IsCoveredAvailableAllyNode : Node
     {
         RaycastHit hit;
         Vector3 direction = target.position - spot.position;
-        if (Physics.Raycast(spot.position, direction, out hit))
+        if (Physics.Raycast(spot.position, direction, out hit)) 
         {
             if (hit.collider.transform != target)
             {

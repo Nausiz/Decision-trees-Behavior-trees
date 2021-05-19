@@ -62,7 +62,7 @@ public class EnemyAI : MonoBehaviour
         ChaseNode chaseNode = new ChaseNode(playerTransform, agent, this);
         RangeNode chasingRangeNode = new RangeNode(chasingRange, playerTransform, transform);
         RangeNode shootingRangeNode = new RangeNode(shootingRange, playerTransform, transform);
-        ShootNode shootNode = new ShootNode(agent, this, playerTransform);
+        AttackNode shootNode = new AttackNode(agent, this, playerTransform);
 
         Sequence chaseSequence = new Sequence(new List<Node> { chasingRangeNode, chaseNode });
 
